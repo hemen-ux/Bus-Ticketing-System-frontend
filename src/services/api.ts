@@ -10,10 +10,9 @@ function getToken() {
 }
 
 export async function api<T>(endpoint: string, options: RequestInit = {}) {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "");
-  if (!baseUrl) {
-    throw new Error("NEXT_PUBLIC_API_URL is not set");
-  }
+  const baseUrl =
+    process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "") ||
+    "https://bus-ticketing-system-backend-1.onrender.com/api";
 
   const token = getToken();
   const response = await fetch(`${baseUrl}${endpoint}`, {
