@@ -30,7 +30,7 @@ export function useSocket(): Socket {
     sharedSocket = io(
       process.env.NEXT_PUBLIC_SOCKET_URL ||
         process.env.NEXT_PUBLIC_API_URL?.replace("/api", "") ||
-        "http://localhost:5000",
+        "https://bus-ticketing-system-backend-1.onrender.com",
       {
         transports: ["websocket", "polling"],
         autoConnect: true,
